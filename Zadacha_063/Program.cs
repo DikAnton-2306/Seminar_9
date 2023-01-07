@@ -3,22 +3,41 @@
 // N = 6 -> "1, 2, 3, 4, 5, 6"
 
 
+// int EnterNumber(string message)
+// {
+//     System.Console.WriteLine(message);
+//     int number = Convert.ToInt32(Console.ReadLine());
+//     return number;
+// }
+
+// void NumberPlus(int num, int count)
+// {
+//     if (count <= num)
+//     {
+//         System.Console.Write(count + ", ");
+//         count++;
+//         NumberPlus(num, count);
+//     }
+// }
+// int count = 1;
+// int number = EnterNumber("Введите число");
+// NumberPlus(number, count);
+
+
+
+
 int EnterNumber(string message)
 {
     System.Console.WriteLine(message);
-    int number = Convert.ToInt32(Console.ReadLine());
-    return number;
+    int num = Convert.ToInt32(Console.ReadLine());
+    return num;
 }
 
-void NumberPlus(int num, int count)
+string NumberPlus(int n)
 {
-    if (count <= num)
-    {
-        System.Console.Write(count + ", ");
-        count++;
-        NumberPlus(num, count);
-    }
+    if (n == 1) return "1";
+    return NumberPlus(n-1) + "::" + n;
 }
-int count = 1;
-int number = EnterNumber("Введите число");
-NumberPlus(number, count);
+
+int number = EnterNumber("Введите натуральное число");
+System.Console.WriteLine(NumberPlus(number));
