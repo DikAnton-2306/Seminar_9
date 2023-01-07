@@ -3,16 +3,14 @@
 // А = 3; В = 5 -> 243
 // А = 2; В = 3 -> 8
 
-int SumNumbers (int A, int B, int sum)
+Console.Clear();
+
+int SumNumbers(int A, int B)
 {
-    for (int i = 2; i <= B; i++)
-    {
-        sum *= A;
-    }
-    return sum;
+    if (B <= 0) return 1;
+    return SumNumbers(A, --B)*A;
 }
 
-// 1. Метод спрашивает пользователя ввести число
 int EnterNumber(string message)
 {
     System.Console.WriteLine(message);
@@ -20,12 +18,8 @@ int EnterNumber(string message)
     return number;
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
-// 1. Пользователь вводит число
 int A = EnterNumber("Введите число А: ");
 int B = EnterNumber("Введите число В: ");
 
-int sum = A;
-sum = SumNumbers(A, B, sum);
+int sum = SumNumbers(A, B);
 System.Console.WriteLine($"Число {A} в степени {B} равно {sum}");
